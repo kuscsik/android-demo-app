@@ -30,6 +30,8 @@ find_library(FBJNI_LIBRARY fbjni
   PATHS ${PYTORCH_LINK_DIRS}
   NO_CMAKE_FIND_ROOT_PATH)
 
+set(OPENCV_ANDROID_SDK "/home/kuscsik/zkres2/ai/opencv_sdk")
+
 # OpenCV
 if(NOT DEFINED ENV{OPENCV_ANDROID_SDK})
   message(FATAL_ERROR "Environment var OPENCV_ANDROID_SDK set")

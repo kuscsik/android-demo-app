@@ -68,6 +68,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
         int vSize = vBuffer.remaining();
 
         byte[] nv21 = new byte[ySize + uSize + vSize];
+
         yBuffer.get(nv21, 0, ySize);
         vBuffer.get(nv21, ySize, vSize);
         uBuffer.get(nv21, ySize + vSize, uSize);
@@ -86,7 +87,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
     protected AnalysisResult analyzeImage(ImageProxy image, int rotationDegrees) {
         try {
             if (mModule == null) {
-                mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "yolov5s.torchscript.ptl"));
+                mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "y.ptl"));
             }
         } catch (IOException e) {
             Log.e("Object Detection", "Error reading assets", e);
